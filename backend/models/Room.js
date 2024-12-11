@@ -5,4 +5,6 @@ const roomSchema = new mongoose.Schema({
   number: { type: String, required: true },
 }, { optimisticConcurrency: true });
 
+roomSchema.index({ building: 1, number: 1 });
+
 module.exports = mongoose.model('Room', roomSchema);
