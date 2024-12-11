@@ -113,6 +113,7 @@ exports.generateReport = async (req, res) => {
       const studyGroups = await StudyGroup.find(query)
         .populate('organizers')
         .populate('attendance.student')
+        .populate('room');
   
       const totalGroups = studyGroups.length;
       const totalDuration = studyGroups.reduce((sum, group) => sum + group.duration, 0);
