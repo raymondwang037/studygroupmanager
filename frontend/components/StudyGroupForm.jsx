@@ -80,7 +80,7 @@ export default function StudyGroupForm({ onSubmit, students = [], rooms = [], in
     );
 
     try {
-      await axios.put(`http://localhost:5000/api/study-groups/${initialData._id}/attendance`, {
+      await axios.put(`https://studygroupmanager.onrender.com/api/study-groups/${initialData._id}/attendance`, {
         attendance,
       });
     } catch (error) {
