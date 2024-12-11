@@ -25,9 +25,6 @@ exports.updateStudent = async (req, res) => {
   try {
     const { id } = req.params;
 
-    if (req.user.role !== 'admin' && req.user._id.toString() !== id) {
-      return res.status(403).json({ error: 'Access denied: You can only edit your own details' });
-    }
 
     const updatedStudent = await Student.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.status(200).json(updatedStudent);
@@ -39,11 +36,6 @@ exports.updateStudent = async (req, res) => {
 exports.deleteStudent = async (req, res) => {
   try {
     const { id } = req.params;
-
-    if (req.user.role !== 'admin' && req.user._id.toString() !== id) {
-      console.log(req.user.role);
-      return res.status(403).json({ error: 'Access denied: You can only delete your own account' });
-    }
 
     await Student.findByIdAndDelete(req.params.id);
     res.status(200).json({ message: 'Student deleted' });
