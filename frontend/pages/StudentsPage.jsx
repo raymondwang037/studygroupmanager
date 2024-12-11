@@ -81,7 +81,6 @@ export default function StudentsPage() {
             {student.name} - {student.email}
             {(isAdmin || isCurrentUser(student._id)) && (
               <>
-                <button onClick={() => setEditingStudent(student)}>Edit</button>
                 <button onClick={() => handleDelete(student._id)}>Delete</button>
               </>
             )}
