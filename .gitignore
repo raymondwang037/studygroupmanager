@@ -7,7 +7,6 @@
 /frontend/.env
 
 # Build files
-/frontend/build
 /dist
 
 # System files
