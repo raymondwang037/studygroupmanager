@@ -2,7 +2,7 @@ const Room = require('../models/Room');
 
 exports.getRooms = async (req, res) => {
   try {
-    const rooms = await Room.find();
+    const rooms = await mongoose.connection.db.collection('rooms').find({}).toArray();
     res.status(200).json(rooms);
   } catch (error) {
     res.status(500).json({ error: error.message });
