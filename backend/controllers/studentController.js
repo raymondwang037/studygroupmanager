@@ -41,6 +41,7 @@ exports.deleteStudent = async (req, res) => {
     const { id } = req.params;
 
     if (req.user.role !== 'admin' && req.user._id.toString() !== id) {
+      console.log(req.user.role);
       return res.status(403).json({ error: 'Access denied: You can only delete your own account' });
     }
 
