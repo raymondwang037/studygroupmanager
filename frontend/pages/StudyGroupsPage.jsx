@@ -71,6 +71,7 @@ export default function StudyGroupsPage() {
   const isGroupMember = (organizers) => {
     console.log(organizers)
     console.log(currentUser)
+    console.log(organizers.some((organizer) => organizer._id === currentUser?._id))
     return organizers.some((organizer) => organizer._id === currentUser?._id);
   }
 
