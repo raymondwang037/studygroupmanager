@@ -23,7 +23,7 @@ export default function ReportPage() {
           <ul>
             {Array.isArray(reportData.studyGroups) && reportData.studyGroups.map((group) => (
               <li key={group._id}>
-                {group.name} - Room: {group.room.building} {group.room.number} on {new Date(group.date).toLocaleDateString()}
+                {group.name} - Room: {group.room.building} {group.room.number} on {new Date(group.date).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}
               </li>
             ))}
           </ul>

@@ -87,7 +87,7 @@ export default function StudyGroupsPage() {
         {studyGroups.map((group) => (
           <li key={group._id}>
             <strong>{group.name}</strong> - 
-            {group.room ? `${group.room.building} ${group.room.number}` : "Room not found"} on {new Date(group.date).toLocaleDateString()}
+            {group.room ? `${group.room.building} ${group.room.number}` : "Room not found"} on {new Date(group.date).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}
             {(isAdmin || isGroupMember(group.organizers)) && (
               <>
                 <button onClick={() => setEditingGroup(group)}>Edit</button>
