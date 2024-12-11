@@ -14,12 +14,12 @@ export default function LoginPage() {
       const response = await axios.post(`https://studygroupmanager.onrender.com/api/students/login`, { email, password });
       const { token } = response.data;
       console.log(token);
-      localStorage.setItem('token', token); // Store token in local storage
-      navigate('/'); // Redirect to the homepage
+      localStorage.setItem('token', token);
+      navigate('/');
     } catch (err) {
       setError(err.response?.data?.error || 'Login failed');
     }
-  };//
+  };
 
   return (
     <div>

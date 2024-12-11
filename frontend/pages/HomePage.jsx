@@ -19,7 +19,7 @@ export default function HomePage() {
         setCurrentUser(response.data);
       } catch (error) {
         console.error('Failed to fetch current user:', error);
-        localStorage.removeItem('token'); // Clear invalid token
+        localStorage.removeItem('token');
       }
     };
 

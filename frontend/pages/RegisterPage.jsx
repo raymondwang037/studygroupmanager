@@ -14,7 +14,7 @@ export default function RegisterPage() {
     try {
       await axios.post(`https://studygroupmanager.onrender.com/api/students/register`, { name, email, password });
       console.log(`https://studygroupmanager.onrender.com/api/students/register`)
-      navigate('/login'); // Redirect to the login page after successful registration
+      navigate('/login');
     } catch (err) {
       setError(err.response?.data?.error || 'Registration failed');
     }
