@@ -19,7 +19,7 @@ exports.createStudent = async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-};
+};//
 
 exports.updateStudent = async (req, res) => {
   try {
