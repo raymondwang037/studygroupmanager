@@ -12,8 +12,8 @@ export default function RegisterPage() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/students/register`, { name, email, password });
-      console.log(`${process.env.REACT_APP_API_BASE_URL}/students/register`)
+      await axios.post(`https://studygroupmanager.onrender.com/api/students/register`, { name, email, password });
+      console.log(`https://studygroupmanager.onrender.com/api/students/register`)
       navigate('/login'); // Redirect to the login page after successful registration
     } catch (err) {
       setError(err.response?.data?.error || 'Registration failed');
