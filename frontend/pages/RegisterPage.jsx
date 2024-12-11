@@ -12,7 +12,7 @@ export default function RegisterPage() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/students/register', { name, email, password });
+      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/students/register`, { name, email, password });
       navigate('/login'); // Redirect to the login page after successful registration
     } catch (err) {
       setError(err.response?.data?.error || 'Registration failed');

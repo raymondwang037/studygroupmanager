@@ -11,7 +11,7 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/students/login', { email, password });
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/students/login`, { email, password });
       const { token } = response.data;
       console.log(token);
       localStorage.setItem('token', token); // Store token in local storage
