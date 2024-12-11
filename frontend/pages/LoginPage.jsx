@@ -19,7 +19,7 @@ export default function LoginPage() {
     } catch (err) {
       setError(err.response?.data?.error || 'Login failed');
     }
-  };
+  };//
 
   return (
     <div>
