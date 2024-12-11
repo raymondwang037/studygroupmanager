@@ -9,7 +9,7 @@ exports.authenticateToken = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const student = await Student.findById(decoded.id);
     if (!student) throw new Error('Invalid token');
-    req.user = student; // Attach user to request
+    req.user = student;
     next();
   } catch (err) {
     res.status(403).json({ error: 'Invalid token' });

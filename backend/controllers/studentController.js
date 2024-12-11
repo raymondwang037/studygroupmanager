@@ -25,7 +25,6 @@ exports.updateStudent = async (req, res) => {
   try {
     const { id } = req.params;
 
-    // Allow students to update only their own details
     if (req.user.role !== 'admin' && req.user._id.toString() !== id) {
       return res.status(403).json({ error: 'Access denied: You can only edit your own details' });
     }
@@ -41,7 +40,6 @@ exports.deleteStudent = async (req, res) => {
   try {
     const { id } = req.params;
 
-    // Allow students to delete only their own account
     if (req.user.role !== 'admin' && req.user._id.toString() !== id) {
       return res.status(403).json({ error: 'Access denied: You can only delete your own account' });
     }
@@ -82,7 +80,7 @@ exports.loginStudent = async (req, res) => {
 
 exports.getCurrentUser = async (req, res) => {
   try {
-    const student = await Student.findById(req.user._id).select('-password'); // Exclude password
+    const student = await Student.findById(req.user._id).select('-password');
     res.status(200).json(student);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -96,8 +94,8 @@ exports.searchStudents = async (req, res) => {
 
     if (query) {
       searchCriteria.$or.push(
-        { name: { $regex: query, $options: 'i' } }, // Case-insensitive search for name
-        { email: { $regex: query, $options: 'i' } } // Case-insensitive search for email
+        { name: { $regex: query, $options: 'i' } },
+        { email: { $regex: query, $options: 'i' } }
       );
     }
 
