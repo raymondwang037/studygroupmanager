@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 const allowedOrigins = [
-  'http://localhost:3000', // Local frontend
+  'http://localhost:5173', // Local frontend
   'https://studygroupmanager.vercel.app', // Vercel frontend
 ];
 
