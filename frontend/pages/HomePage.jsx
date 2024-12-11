@@ -13,7 +13,7 @@ export default function HomePage() {
       if (!token) return;
 
       try {
-        const response = await axios.get('http://localhost:5000/api/students/me', {
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/students/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCurrentUser(response.data);
